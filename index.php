@@ -15,16 +15,17 @@ License: GPLv3 or later
 Text Domain: glm
 Domain Path: /languages
 */
+
 if ( !defined( 'ABSPATH' ) ) die( 'No direct access allowed' );
 
-/* Load plugin textdomain
+/* LOAD PLUGIN TEXTDOMAIN
 ----------------------------------------------------------------------------- */
 function glm_load_textdomain() {
   load_plugin_textdomain( 'glm', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'init', 'glm_load_textdomain' );
 
-/* Register and enqueue CSS file into page header
+/* REGISTER AND ENQUEUE CSS FILE INTO PAGE HEADER
 ----------------------------------------------------------------------------- */
 function add_glm_css() {
   wp_register_style( 'gadlab-meteo', '/wp-content/plugins/gadlab-meteo/styles/gadlab-meteo.css' );
@@ -32,17 +33,18 @@ function add_glm_css() {
 }
 add_action( 'wp_print_styles', 'add_glm_css' );
 
-/* Create shortcode
+/* CREATE SHORTCODE
 ----------------------------------------------------------------------------- */
 function glm_decode( $atts ) {
-  // Get the json data file to be parsed
+  // GET THE JSON DATA FILE TO BE PARSED
   $data_json = file_get_contents( 'https://prevision-meteo.ch/services/json/le-marchairuz' );
-  // Liste des paramètres retournés par le flux JSON:
+  // LISTE DES PARAMÈTRES RETOURNÉS PAR LE FLUX JSON:
   // https://www.prevision-meteo.ch/uploads/pdf/recuperation-donnees-meteo.pdf
-  // Parse file to get Data
+
+  // PARSE FILE TO GET DATA
   $decoded = json_decode( $data_json );
 
-  // Build the meteo elements in get_html_translation_table
+  // BUILD THE METEO ELEMENTS IN GET_HTML_TRANSLATION_TABLE
   $glm_icon = '<img src="'.$decoded->current_condition->icon.'" alt="icon">';
   $glm_temp = $decoded->current_condition->tmp."°C";
   $glm_cond = $decoded->current_condition->condition;
@@ -50,16 +52,31 @@ function glm_decode( $atts ) {
   $glm_sun  = '<i class="fas fa-sun" style="color:#fee034;"></i> <i class="fas fa-arrow-up"></i> '.$decoded->city_info->sunrise.' <i class="fas fa-arrow-down"></i> '.$decoded->city_info->sunset;
   $glm_humid = '<i class="fas fa-tint" style="color:#00c3ff;"></i>&nbsp; '._e( 'Humidity', 'glm' ).' : <b>'.$decoded->current_condition->humidity.'%</b>';
 
-  // Build the HTML widget
-  $content  = '<a href="/informations/meteo/" title="'._e( 'Consult the detailed forecasts...', 'glm' ).'">';
-  $content .= '<div id="meteo_today">';
-  $content .= '<p class="meteo-temperature">'.$glm_temp.'&nbsp;'.$glm_icon.'</p>';
-  $content .= '<p class="meteo-conditions">'.$glm_cond.'<br/>';
-  $content .= $glm_wind.'<br/>';
-  $content .= $glm_sun.'<br/>';
-  $content .= $glm_humid.'</p>';
-  $content .= '</div></a><!-- /#widget_meteo -->';
+  // SET UP DEFAULT PARAMETERS
+  extract( shortcode_atts( array(
+    'type' => 'glm_today'
+  ), $atts ) );
+  // GET THE KIND OF METEO TYPE TO DISPLAY
+	$glm_type = $atts[ 'type' ];
 
-  return $content;
+  if ($glm_type == 'glm_today'){
+    // BUILD THE HTML WIDGET
+    $content  = '<a href="/informations/meteo/" title="'._e( 'Consult the detailed forecasts...', 'glm' ).'">';
+    $content .= '<div id="meteo_today">';
+    $content .= '<p class="meteo-temperature">'.$glm_temp.'&nbsp;'.$glm_icon.'</p>';
+    $content .= '<p class="meteo-conditions">'.$glm_cond.'<br/>';
+    $content .= $glm_wind.'<br/>';
+    $content .= $glm_sun.'<br/>';
+    $content .= $glm_humid.'</p>';
+    $content .= '</div></a><!-- /#widget_meteo -->';
+
+    return $content;
+  }
+  else if ( $glm_type == 'glm_forecasts' ){
+    echo 'GLM Forecasts';
+  }
+  else if ( $glm_type == 'glm_hourly' ){
+    echo 'GLM Hourly';
+  }
 }
 add_shortcode( 'meteo', 'glm_decode' );
