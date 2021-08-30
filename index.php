@@ -53,30 +53,33 @@ function glm_decode( $atts ) {
   $glm_humid = '<i class="fas fa-tint" style="color:#00c3ff;"></i>&nbsp; '._e( 'Humidity', 'glm' ).' : <b>'.$decoded->current_condition->humidity.'%</b>';
 
   // SET UP DEFAULT PARAMETERS
-  extract( shortcode_atts( array(
-    'type' => 'glm_today'
-  ), $atts ) );
+  extract( shortcode_atts( array( 'type' => 'glm_today' ), $atts ) );
   // GET THE KIND OF METEO TYPE TO DISPLAY
-	$glm_type = $atts[ 'type' ];
+	$glm_type = $atts['type'];
 
+  // BUILD THE HTML WIDGET BASED ON $ATTS
   if ($glm_type == 'glm_today'){
-    // BUILD THE HTML WIDGET
-    $content  = '<a href="/informations/meteo/" title="'._e( 'Consult the detailed forecasts...', 'glm' ).'">';
-    $content .= '<div id="meteo_today">';
-    $content .= '<p class="meteo-temperature">'.$glm_temp.'&nbsp;'.$glm_icon.'</p>';
-    $content .= '<p class="meteo-conditions">'.$glm_cond.'<br/>';
-    $content .= $glm_wind.'<br/>';
-    $content .= $glm_sun.'<br/>';
-    $content .= $glm_humid.'</p>';
-    $content .= '</div></a><!-- /#widget_meteo -->';
+    $out_today  = '<a href="/informations/meteo/" title="'._e( 'Consult the detailed forecasts...', 'glm' ).'">';
+    $out_today .= '<div id="meteo_today">';
+    $out_today .= '<p class="meteo-temperature">'.$glm_temp.'&nbsp;'.$glm_icon.'</p>';
+    $out_today .= '<p class="meteo-conditions">'.$glm_cond.'<br/>';
+    $out_today .= $glm_wind.'<br/>';
+    $out_today .= $glm_sun.'<br/>';
+    $out_today .= $glm_humid.'</p>';
+    $out_today .= '</div></a><!-- /#widget_meteo -->';
 
-    return $content;
+    return $out_today;
   }
   else if ( $glm_type == 'glm_forecasts' ){
-    echo 'GLM Forecasts';
+
+    $out_forecasts = '<p>GLM Forecasts</p>';
+
+    return $out_forecasts;
   }
   else if ( $glm_type == 'glm_hourly' ){
-    echo 'GLM Hourly';
+    $out_hourly = '<p>GLM Hourly</p>';
+
+    return $out_hourly;
   }
 }
 add_shortcode( 'meteo', 'glm_decode' );
