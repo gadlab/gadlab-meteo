@@ -1,5 +1,9 @@
 <?php
-// /wp-content/plugins/gad-lab-meteo/assets/inc/glm-admin.php
+/*
+    -------------------------
+    Add menu and submenu page
+    -------------------------
+*/
 class glm_Admin_Form
 {
     const ID = 'glm-admin-forms';
@@ -21,13 +25,13 @@ class glm_Admin_Form
             array(&$this, 'load_view'),
             'dashicons-admin-page'
         );
-        /*add_submenu_page(
+        add_submenu_page(
             $this->get_id(),
             esc_html__('Submenu', 'glm-admin'),
             esc_html__('Submenu', 'glm-admin'),
             'manage_options',
             $this->get_id() . '_view1',
             array(&$this, 'load_view')
-        );*/
+        );
     }
 }
