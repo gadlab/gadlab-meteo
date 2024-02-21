@@ -1,0 +1,124 @@
+
+/*  ----------------------------- 
+*   GAD LAB METEO · Front-End CSS  
+*   ----------------------------- 
+*/
+.meteo_today, .meteo_forecast, .meteo_hours {
+    background-color: transparent;
+    border-collapse: collapse;
+    border: none !important;
+    color: #ffffff;
+    width: 100%;
+}
+.meteo_forecast th, .meteo_forecast td, 
+.meteo_hours th, .meteo_hours td {
+    border: none !important;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.meteo_hours caption {
+    font-family: 'Oswald';
+    font-size: 1.5em;
+}
+.meteo_hours th {
+    font-size: 0.75em;
+}
+.meteo_hours td {
+    vertical-align: top;
+}
+.meteo_today a, .meteo_today p {
+    font-size: 1em;
+    line-height: 1.2em;
+    margin: 0;
+    color: #ffffff;
+}
+.meteo_forecast tr {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+}
+.meteo_forecast td {
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+.meteo_forecast img {
+    width: 128px;
+} 
+.meteo_hours img {
+    width: 32px;
+}
+.meteo_forecast .tmin, .meteo_forecast .tmax {
+    font-weight: bold;
+}
+
+.meteo_forecast .tmin {
+    color: #00c3ff;
+}
+
+.meteo_forecast .tmax {
+    color: #fe8934;
+}
+.meteo_hours .col-position-0 img, 
+.meteo_hours .col-position-23 img {
+    margin-top: 100px;
+}
+.meteo_hours .col-position-1 img, 
+.meteo_hours .col-position-22 img {
+    margin-top: 98px;
+}
+.meteo_hours .col-position-2 img, 
+.meteo_hours .col-position-21 img {
+    margin-top: 92px;
+}
+.meteo_hours .col-position-3 img, 
+.meteo_hours .col-position-20 img {
+    margin-top: 83px;
+}
+.meteo_hours .col-position-4 img, 
+.meteo_hours .col-position-19 img {
+    margin-top: 71px;
+}
+.meteo_hours .col-position-5 img, 
+.meteo_hours .col-position-18 img {
+    margin-top: 57px;
+}
+.meteo_hours .col-position-6 img, 
+.meteo_hours .col-position-17 img {
+    margin-top: 43px;
+}
+.meteo_hours .col-position-7 img, 
+.meteo_hours .col-position-16 img {
+    margin-top: 28px;
+}
+.meteo_hours .col-position-8 img, 
+.meteo_hours .col-position-15 img {
+    margin-top: 18px;
+}
+.meteo_hours .col-position-9 img, 
+.meteo_hours .col-position-14 img {
+    margin-top: 9px;
+}
+.meteo_hours .col-position-10 img, 
+.meteo_hours .col-position-13 img {
+    margin-top: 3px;
+}
+.meteo_hours .col-position-11 img, 
+.meteo_hours .col-position-12 img {
+    margin-top: 0;
+}
+.meteo_today {
+    text-align: center;
+    padding: 0 1em;
+}
+.meteo_today p:first-child {
+    font-size: 3em;
+}
+.meteo_today .fa-sun {
+    color: rgb(255, 215, 0);
+}
+.meteo_today .fa-tint {
+    color: rgb(0, 195, 255);
+}
