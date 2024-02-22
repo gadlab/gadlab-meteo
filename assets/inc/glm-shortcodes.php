@@ -7,11 +7,12 @@
 // If this file is called directly, abort. //
 if ( ! defined( 'WPINC' ) ) {die;} // end if
 
-/*
-*  Display Anywhere Using Shortcodes :
-*  [meteo type="meteo_today"]
-*  [meteo type="meteo_forecast"]
-*  [meteo type="meteo_hours"]
+/*  ----------------------------------------
+    Display plugin content with shortcodes :
+    ----------------------------------------
+    [meteo type="today"]
+    [meteo type="forecast"]
+    [meteo type="hours"]
 */
 
 function meteo_decode($atts) {
@@ -33,11 +34,11 @@ function meteo_decode($atts) {
 
     // Select the view to be displayed by type
     switch ($meteo_type) {
-        case 'meteo_today':
+        case 'today':
             return meteo_view_today($json);
-        case 'meteo_forecast':
+        case 'forecast':
             return meteo_view_forecast($json);
-        case 'meteo_hours':
+        case 'hours':
             return meteo_view_hours($json);
         default:
             return 'Ce type de vue météo n’est pas pris en charge.';

@@ -1,37 +1,23 @@
 <?php
-/*
-    -------------------------
-    Add menu and submenu page
-    -------------------------
+/*  -----------------------
+    Add admin settings page
+    -----------------------
 */
-class glm_Admin_Form
-{
-    const ID = 'glm-admin-forms';
-    public function init()
-    {
-        add_action('admin_menu', array($this, 'add_menu_page'), 20);
-    }
-    public function get_id()
-    {
-        return self::ID;
-    }
-    public function add_menu_page()
-    {
-        add_menu_page(
-            esc_html__('Gad Lab Meteo', 'glm-admin'),
-            esc_html__('Gad Lab Meteo', 'glm-admin'),
-            'manage_options',
-            $this->get_id(),
-            array(&$this, 'load_view'),
-            'dashicons-admin-page'
-        );
-        add_submenu_page(
-            $this->get_id(),
-            esc_html__('Submenu', 'glm-admin'),
-            esc_html__('Submenu', 'glm-admin'),
-            'manage_options',
-            $this->get_id() . '_view1',
-            array(&$this, 'load_view')
-        );
-    }
+function glm_menu_page() {
+    add_menu_page(
+        __( 'GLM Setting Page', 'glm' ),
+        __( 'GLM Setting Page', 'glm' ),
+        'manage_options',
+        'glm_setting_page',
+        'glm_setting_page',
+        '',
+        6
+    );
+}
+add_action('admin_menu', 'glm_menu_page');
+    
+function glm_setting_page() {
+?>
+<h2><?php _e('My Plugin Title', 'glm'); ?></h2>
+<?php
 }

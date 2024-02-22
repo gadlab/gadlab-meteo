@@ -1,30 +1,29 @@
 <?php 
 /*
  	============= Gad Lab Meteo =============
-	This file initializes all Core components
+	This file initializes all core components
 */
-
 // If this file is called directly, abort. //
 if ( ! defined( 'WPINC' ) ) {die;} // end if
+
 // Define Our Constants
 define('GLM_CORE_INC',dirname( __FILE__ ).'/assets/inc/');
+define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
 define('GLM_CORE_IMG',plugins_url( 'assets/img/', __FILE__ ));
 define('GLM_CORE_CSS',plugins_url( 'assets/css/', __FILE__ ));
 define('GLM_CORE_JS',plugins_url( 'assets/js/', __FILE__ ));
 define('GLM_CORE_ADMIN',plugins_url( 'assets/admin/', __FILE__ ));
 
-/*
-    ------------
-    Register CSS
-    ------------
+/*  -----------------
+    Register CSS file
+    -----------------
 */
 function glm_register_core_css(){
 wp_enqueue_style('glm-core', GLM_CORE_CSS . 'glm-core.css',null,time(),'all');
 };
 add_action( 'wp_enqueue_scripts', 'glm_register_core_css' );  
 
-/*
-    ------------------------
+/*  ------------------------
     Register JS/Jquery Ready
     ------------------------
 */
@@ -34,10 +33,9 @@ wp_enqueue_script('glm-core', GLM_CORE_JS . 'glm-core.js','jquery',time(),true);
 };
 add_action( 'wp_enqueue_scripts', 'glm_register_core_js' ); 
 
-/*
-    --------
-    Includes
-    --------
+/*  ----------------------------
+    Includes all necessary files
+    ----------------------------
 */ 
 // Load the Functions
 if ( file_exists( GLM_CORE_INC . 'glm-core-functions.php' ) ) {
@@ -52,10 +50,18 @@ if ( file_exists( GLM_CORE_INC . 'glm-shortcodes.php' ) ) {
 	require_once GLM_CORE_INC . 'glm-shortcodes.php';
 }
 
-/*
-    ---------------    
-    Load Admin page
-    ---------------
+/*  ---------------------------------------
+    Load plugin textdomain for localization
+    ---------------------------------------
+*/
+function glm_load_textdomain() {
+    load_plugin_textdomain( 'glm', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'init', 'glm_load_textdomain' );
+
+/*  ------------------------
+    Load Admin settings page
+    ------------------------
 */
 if ( file_exists( GLM_CORE_ADMIN . 'glm-admin.php' ) ) {
 	require_once GLM_CORE_ADMIN . 'glm-admin.php';

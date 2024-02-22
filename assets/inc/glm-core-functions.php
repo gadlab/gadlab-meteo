@@ -6,10 +6,9 @@
 
 // If this file is called directly, abort. //
 if ( ! defined( 'WPINC' ) ) {die;} // end if
-/*
-*
-* Custom Front End Ajax Scripts / Loads In WP Footer
-*
+
+/*  --------------------------------------------------
+    Custom Front End Ajax Scripts / Loads In WP Footer
 */
 function glm_frontend_ajax_form_scripts(){
 ?>
