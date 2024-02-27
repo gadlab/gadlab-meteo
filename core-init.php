@@ -58,8 +58,9 @@ if ( file_exists( GLM_CORE_ADMIN . 'glm-admin.php' ) ) {
     Load plugin textdomain for localization
     ---------------------------------------
 */
+/*
 function glm_load_textdomain() {
     load_plugin_textdomain( 'glm', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'init', 'glm_load_textdomain' );
-
+*/

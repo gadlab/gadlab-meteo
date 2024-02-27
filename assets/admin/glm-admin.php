@@ -3,26 +3,26 @@
     Admin settings page
     -----------------------
 */
-// Ajouter la page de réglages au menu Paramètres
+// Add settings page to Admin Settings Menu
 function glm_meteo_add_admin_page() {
     add_options_page(
-        'Réglages Météo', // Titre de la page
-        'Météo', // Titre du menu
-        'manage_options', // Capacité requise
-        'glm-meteo-settings', // Slug de la page
-        'glm_meteo_render_admin_page' // Fonction pour rendre la page
+        'Gad Lab Météo · Réglages admin', // Page title
+        'Gad Lab Météo', // Menu title
+        'manage_options', // Capacity required
+        'glm-meteo-settings', // Page slug
+        'glm_meteo_render_admin_page' // Page rendering function
     );
 }
 add_action('admin_menu', 'glm_meteo_add_admin_page');
 
-// Fonction pour afficher le contenu de la page d'admin
+// Function for displaying admin page content
 function glm_meteo_render_admin_page() {
     ?>
     <div class="wrap">
         <h2>Réglages Météo</h2>
         <form action="options.php" method="post">
             <?php
-            // Affichage des sections de réglages et de leurs champs
+            // Display of settings sections and their fields
             settings_fields('glm_meteo_settings');
             do_settings_sections('glm-meteo-settings');
             submit_button();
@@ -32,7 +32,7 @@ function glm_meteo_render_admin_page() {
     <?php
 }
 
-// Enregistrer les réglages, sections, et champs
+// Save settings, sections and fields
 function glm_meteo_settings_init() {
     register_setting('glm_meteo_settings', 'glm_meteo_options');
 
@@ -43,7 +43,7 @@ function glm_meteo_settings_init() {
         'glm-meteo-settings'
     );
 
-    // Ajoutez ici d'autres add_settings_field() au besoin
+    // Add more add_settings_field() here as needed
 }
 
 add_action('admin_init', 'glm_meteo_settings_init');
@@ -52,13 +52,13 @@ function glm_meteo_settings_section_cb() {
     echo '<p>Personnalisez ici les paramètres de votre plugin météo.</p>';
 }
 
-// Activation et désactivation du plugin
+// Activating and deactivating the plugin
 function glm_meteo_activate() {
-    // Actions à réaliser à l'activation du plugin
+    // Actions to be taken on plugin activation
 }
 register_activation_hook(__FILE__, 'glm_meteo_activate');
 
 function glm_meteo_deactivate() {
-    // Actions à réaliser à la désactivation du plugin
+    // What to do when the plugin is deactivated
 }
 register_deactivation_hook(__FILE__, 'glm_meteo_deactivate');
