@@ -6,7 +6,7 @@
 // Add settings page to Admin Settings Menu
 function glm_meteo_add_admin_page() {
     add_options_page(
-        'Gad Lab Météo · Réglages admin', // Page title
+        'Gad Lab Météo · Réglages', // Page title
         'Gad Lab Météo', // Menu title
         'manage_options', // Capacity required
         'glm-meteo-settings', // Page slug
@@ -15,11 +15,11 @@ function glm_meteo_add_admin_page() {
 }
 add_action('admin_menu', 'glm_meteo_add_admin_page');
 
-// Function for displaying admin page content
+// Display the admin page content
 function glm_meteo_render_admin_page() {
     ?>
     <div class="wrap">
-        <h2>Réglages Météo</h2>
+        <h2>Gad Lab Météo · Réglages</h2>
         <form action="options.php" method="post">
             <?php
             // Display of settings sections and their fields
@@ -40,16 +40,26 @@ function glm_meteo_settings_init() {
         'glm_meteo_settings_section',
         'Paramètres Généraux',
         'glm_meteo_settings_section_cb',
+		'glm_theme_func',
+		'glm_theme_func_settings',
+		'glm_theme_func_faq',
         'glm-meteo-settings'
     );
-
-    // Add more add_settings_field() here as needed
 }
 
 add_action('admin_init', 'glm_meteo_settings_init');
 
 function glm_meteo_settings_section_cb() {
     echo '<p>Personnalisez ici les paramètres de votre plugin météo.</p>';
+}
+function glm_theme_func(){
+	echo '<div class="wrap"><div id="icon-options-general" class="icon32"><br></div><h2>Theme</h2></div>';
+}
+function glm_theme_func_settings(){
+	echo '<div class="wrap"><div id="icon-options-general" class="icon32"><br></div><h2>Settings</h2></div>';
+}
+function glm_theme_func_faq(){
+	echo '<div class="wrap"><div id="icon-options-general" class="icon32"><br></div><h2>FAQ</h2></div>';
 }
 
 // Activating and deactivating the plugin

@@ -9,10 +9,10 @@ if ( ! defined( 'WPINC' ) ) {die;} // end if
 // Define Our Constants
 define('GLM_CORE_INC',dirname( __FILE__ ).'/assets/inc/');
 define('GLM_CORE_ADMIN',dirname( __FILE__ ).'/assets/admin/');
-//define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
 define('GLM_CORE_IMG',plugins_url( 'assets/img/', __FILE__ ));
 define('GLM_CORE_CSS',plugins_url( 'assets/css/', __FILE__ ));
 define('GLM_CORE_JS',plugins_url( 'assets/js/', __FILE__ ));
+//define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
 
 /*  -----------------
     Register CSS file
