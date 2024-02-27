@@ -18,8 +18,8 @@
 
 	public function gadlab_meteo_add_plugin_page() {
 		add_options_page(
-			'gadlab Meteo', // page_title
-			'gadlab Meteo', // menu_title
+			'Gad Lab Meteo', // page_title
+			'Gad Lab Meteo', // menu_title
 			'manage_options', // capability
 			'gadlab-meteo', // menu_slug
 			array( $this, 'gadlab_meteo_create_admin_page' ) // function
@@ -30,7 +30,7 @@
 		$this->gadlab_meteo_options = get_option( 'gadlab_meteo_option_name' ); ?>
 
 		<div class="wrap">
-			<h2>gadlab Meteo</h2>
+			<h2>Gad Lab Meteo · Administration</h2>
 			<p>Texte description of what the plugins does.</p>
 			<?php settings_errors(); ?>
 
