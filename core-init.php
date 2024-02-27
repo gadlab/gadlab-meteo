@@ -8,11 +8,11 @@ if ( ! defined( 'WPINC' ) ) {die;} // end if
 
 // Define Our Constants
 define('GLM_CORE_INC',dirname( __FILE__ ).'/assets/inc/');
-define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
+define('GLM_CORE_ADMIN',dirname( __FILE__ ).'/assets/admin/');
+//define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
 define('GLM_CORE_IMG',plugins_url( 'assets/img/', __FILE__ ));
 define('GLM_CORE_CSS',plugins_url( 'assets/css/', __FILE__ ));
 define('GLM_CORE_JS',plugins_url( 'assets/js/', __FILE__ ));
-define('GLM_CORE_ADMIN',plugins_url( 'assets/admin/', __FILE__ ));
 
 /*  -----------------
     Register CSS file
@@ -49,6 +49,10 @@ if ( file_exists( GLM_CORE_INC . 'glm-ajax-request.php' ) ) {
 if ( file_exists( GLM_CORE_INC . 'glm-shortcodes.php' ) ) {
 	require_once GLM_CORE_INC . 'glm-shortcodes.php';
 }
+// Load the Admin page
+if ( file_exists( GLM_CORE_ADMIN . 'glm-admin.php' ) ) {
+	require_once GLM_CORE_ADMIN . 'glm-admin.php';
+}
 
 /*  ---------------------------------------
     Load plugin textdomain for localization
@@ -59,15 +63,3 @@ function glm_load_textdomain() {
 }
 add_action( 'init', 'glm_load_textdomain' );
 
-/*  ------------------------
-    Load Admin settings page
-    ------------------------
-*/
-if ( file_exists( GLM_CORE_ADMIN . 'glm-admin.php' ) ) {
-	require_once GLM_CORE_ADMIN . 'glm-admin.php';
-}
-function glm_register_core_admin() {
-    $plugin = new glm_Admin_Form();
-    $plugin->init();
-}
-glm_register_core_admin();
