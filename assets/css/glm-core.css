@@ -115,6 +115,7 @@
 }
 .meteo_today p:first-child {
     font-size: 3em;
+    padding-bottom: 0.5em !important;
 }
 .meteo_today .fa-sun {
     color: rgb(255, 215, 0);
