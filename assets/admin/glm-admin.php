@@ -59,33 +59,41 @@
 		);
 
 		add_settings_field(
-			'json_file_s_url_0', // id
+			'json_url', // id
 			'json file’s url', // title
-			array( $this, 'json_file_s_url_0_callback' ), // callback
+			array( $this, 'json_url_callback' ), // callback
 			'gadlab-meteo-admin', // page
 			'gadlab_meteo_setting_section' // section
 		);
 
 		add_settings_field(
-			'color_text_display_1', // id
+			'detailed_page', // id
+			'Detailed page’s url', // title
+			array( $this, 'detailed_page_callback' ), // callback
+			'gadlab-meteo-admin', // page
+			'gadlab_meteo_setting_section' // section
+		);
+
+		add_settings_field(
+			'color_text_display', // id
 			'Color text display', // title
-			array( $this, 'color_text_display_1_callback' ), // callback
+			array( $this, 'color_text_display_callback' ), // callback
 			'gadlab-meteo-admin', // page
 			'gadlab_meteo_setting_section' // section
 		);
 
 		add_settings_field(
-			'warm_color_in_hexadecimal_2', // id
+			'warm_color', // id
 			'Warm color in hexadécimal', // title
-			array( $this, 'warm_color_in_hexadecimal_2_callback' ), // callback
+			array( $this, 'warm_color_callback' ), // callback
 			'gadlab-meteo-admin', // page
 			'gadlab_meteo_setting_section' // section
 		);
 
 		add_settings_field(
-			'cold_color_in_hexadecimal_3', // id
+			'cold_color', // id
 			'Cold color in hexadécimal', // title
-			array( $this, 'cold_color_in_hexadecimal_3_callback' ), // callback
+			array( $this, 'cold_color_callback' ), // callback
 			'gadlab-meteo-admin', // page
 			'gadlab_meteo_setting_section' // section
 		);
@@ -93,20 +101,25 @@
 
 	public function gadlab_meteo_sanitize($input) {
 		$sanitary_values = array();
-		if ( isset( $input['json_file_s_url_0'] ) ) {
-			$sanitary_values['json_file_s_url_0'] = sanitize_text_field( $input['json_file_s_url_0'] );
+		if ( isset( $input['json_url'] ) ) {
+			$sanitary_values['json_url'] = sanitize_text_field( $input['json_url'] );
 		}
 
-		if ( isset( $input['color_text_display_1'] ) ) {
-			$sanitary_values['color_text_display_1'] = $input['color_text_display_1'];
+		// detailed_page
+		if ( isset( $input['detailed_page'] ) ) {
+			$sanitary_values['detailed_page'] = sanitize_text_field( $input['detailed_page'] );
+		}
+		
+		if ( isset( $input['color_text_display'] ) ) {
+			$sanitary_values['color_text_display'] = $input['color_text_display'];
 		}
 
-		if ( isset( $input['warm_color_in_hexadecimal_2'] ) ) {
-			$sanitary_values['warm_color_in_hexadecimal_2'] = sanitize_text_field( $input['warm_color_in_hexadecimal_2'] );
+		if ( isset( $input['warm_color'] ) ) {
+			$sanitary_values['warm_color'] = sanitize_text_field( $input['warm_color'] );
 		}
 
-		if ( isset( $input['cold_color_in_hexadecimal_3'] ) ) {
-			$sanitary_values['cold_color_in_hexadecimal_3'] = sanitize_text_field( $input['cold_color_in_hexadecimal_3'] );
+		if ( isset( $input['cold_color'] ) ) {
+			$sanitary_values['cold_color'] = sanitize_text_field( $input['cold_color'] );
 		}
 
 		return $sanitary_values;
@@ -116,31 +129,39 @@
 		
 	}
 
-	public function json_file_s_url_0_callback() {
+	public function json_url_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[json_file_s_url_0]" id="json_file_s_url_0" value="%s">',
-			isset( $this->gadlab_meteo_options['json_file_s_url_0'] ) ? esc_attr( $this->gadlab_meteo_options['json_file_s_url_0']) : ''
+			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[json_url]" id="json_url" value="%s">',
+			isset( $this->gadlab_meteo_options['json_url'] ) ? esc_attr( $this->gadlab_meteo_options['json_url']) : ''
 		);
 	}
 
-	public function color_text_display_1_callback() {
-		?> <fieldset><?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display_1'] ) && $this->gadlab_meteo_options['color_text_display_1'] === 'dark' ) ? 'checked' : '' ; ?>
-		<label for="color_text_display_1-0"><input type="radio" name="gadlab_meteo_option_name[color_text_display_1]" id="color_text_display_1-0" value="dark" <?php echo $checked; ?>> Dark text on light background</label><br>
-		<?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display_1'] ) && $this->gadlab_meteo_options['color_text_display_1'] === 'light' ) ? 'checked' : '' ; ?>
-		<label for="color_text_display_1-1"><input type="radio" name="gadlab_meteo_option_name[color_text_display_1]" id="color_text_display_1-1" value="light" <?php echo $checked; ?>> Light text on dark background</label></fieldset> <?php
-	}
-
-	public function warm_color_in_hexadecimal_2_callback() {
+	// detailed_page
+	public function detailed_page_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[warm_color_in_hexadecimal_2]" id="warm_color_in_hexadecimal_2" value="%s">',
-			isset( $this->gadlab_meteo_options['warm_color_in_hexadecimal_2'] ) ? esc_attr( $this->gadlab_meteo_options['warm_color_in_hexadecimal_2']) : ''
+			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[detailed_page]" id="detailed_page" value="%s">',
+			isset( $this->gadlab_meteo_options['detailed_page'] ) ? esc_attr( $this->gadlab_meteo_options['detailed_page']) : ''
 		);
 	}
 
-	public function cold_color_in_hexadecimal_3_callback() {
+	public function color_text_display_callback() {
+		?> <fieldset><legend>CSS Settings</legend><?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display'] ) && $this->gadlab_meteo_options['color_text_display'] === 'dark' ) ? 'checked' : '' ; ?>
+		<label for="color_text_display-0"><input type="radio" name="gadlab_meteo_option_name[color_text_display]" id="color_text_display-0" value="dark" <?php echo $checked; ?>> Dark text on light background</label><br>
+		<?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display'] ) && $this->gadlab_meteo_options['color_text_display'] === 'light' ) ? 'checked' : '' ; ?>
+		<label for="color_text_display-1"><input type="radio" name="gadlab_meteo_option_name[color_text_display]" id="color_text_display-1" value="light" <?php echo $checked; ?>> Light text on dark background</label></fieldset> <?php
+	}
+
+	public function warm_color_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[cold_color_in_hexadecimal_3]" id="cold_color_in_hexadecimal_3" value="%s">',
-			isset( $this->gadlab_meteo_options['cold_color_in_hexadecimal_3'] ) ? esc_attr( $this->gadlab_meteo_options['cold_color_in_hexadecimal_3']) : ''
+			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[warm_color]" id="warm_color" value="%s">',
+			isset( $this->gadlab_meteo_options['warm_color'] ) ? esc_attr( $this->gadlab_meteo_options['warm_color']) : ''
+		);
+	}
+
+	public function cold_color_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="gadlab_meteo_option_name[cold_color]" id="cold_color" value="%s">',
+			isset( $this->gadlab_meteo_options['cold_color'] ) ? esc_attr( $this->gadlab_meteo_options['cold_color']) : ''
 		);
 	}
 
@@ -151,8 +172,9 @@ if ( is_admin() )
 /* 
  * Retrieve this value with:
  * $gadlab_meteo_options = get_option( 'gadlab_meteo_option_name' ); // Array of All Options
- * $json_file_s_url_0 = $gadlab_meteo_options['json_file_s_url_0']; // json file’s url
- * $color_text_display_1 = $gadlab_meteo_options['color_text_display_1']; // Color text display
- * $warm_color_in_hexadecimal_2 = $gadlab_meteo_options['warm_color_in_hexadecimal_2']; // Warm color in hexadécimal
- * $cold_color_in_hexadecimal_3 = $gadlab_meteo_options['cold_color_in_hexadecimal_3']; // Cold color in hexadécimal
+ * $json_url = $gadlab_meteo_options['json_url']; // json file’s url
+ * $detailed_page = $gadlab_meteo_options['detailed_page']; // Detailed page’s url
+ * $color_text_display = $gadlab_meteo_options['color_text_display']; // Color text display
+ * $warm_color = $gadlab_meteo_options['warm_color']; // Warm color in hexadécimal
+ * $cold_color = $gadlab_meteo_options['cold_color']; // Cold color in hexadécimal
  */
