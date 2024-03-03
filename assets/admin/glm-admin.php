@@ -35,9 +35,9 @@
 			<p>Data source : <a href="https://prevision-meteo.ch/services" target="_blank" title="Clic opens in a new window...">prevision-meteo.ch</a></p>
 			<p>Usage<br>Add following shortcodes to your posts:</p>
 			<ul>
-			<li><strong>[meteo type="meteo_today"]</strong> · Display today weather (short version)</li>
-			<li><strong>[meteo type="meteo_hours"]</strong> · Display today weather informations in 24 hours format</li>
-			<li><strong>[meteo type="meteo_forecast"]</strong> · Display weather forecast for today and the next three days</li>
+			<li><strong>[meteo type="today"]</strong> · Display today weather (short version)</li>
+			<li><strong>[meteo type="hours"]</strong> · Display today weather informations in 24 hours format</li>
+			<li><strong>[meteo type="forecast"]</strong> · Display weather forecast for today and the next three days</li>
 			</ul>
 			<?php settings_errors(); ?>
 
