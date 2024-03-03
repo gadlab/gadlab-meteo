@@ -30,8 +30,15 @@
 		$this->gadlab_meteo_options = get_option( 'gadlab_meteo_option_name' ); ?>
 
 		<div class="wrap">
-			<h2>Gad Lab Meteo · Administration</h2>
-			<p>Texte description of what the plugins does.</p>
+			<h2>Gad Lab Meteo · Preferences</h2>
+			<p>WP Plugin · Hourly and daily weather forecasts for a given place in Switzerland.</p>
+			<p>Data source : <a href="https://prevision-meteo.ch/services" target="_blank" title="Clic opens in a new window...">prevision-meteo.ch</a></p>
+			<p>Usage<br>Add following shortcodes to your posts:</p>
+			<ul>
+			<li><strong>[meteo type="meteo_today"]</strong> · Display today weather (short version)</li>
+			<li><strong>[meteo type="meteo_hours"]</strong> · Display today weather informations in 24 hours format</li>
+			<li><strong>[meteo type="meteo_forecast"]</strong> · Display weather forecast for today and the next three days</li>
+			</ul>
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php">
