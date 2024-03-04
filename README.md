@@ -4,11 +4,11 @@
 ### Settings
 Get json meteo data file from https://prevision-meteo.ch/service/
 
-1. Enter the name or ZIP code of the location for which you wish to display the weather forecast and hit [ENTER] key. If necessary, select your location within the dropdown menu that appears below, to indicate precisely the exact position.
-2. Go to third sections’s page called « JSON » and clic in the field filled with the URL of json’s data. Select and copy the link.
-3. Go to wordpress menu «[Settings > Gad Lab Meteo](/wp-admin/options-general.php?page=gadlab-meteo)»
-4. Paste the link in the field named «json file’s url» under «URL’s settings» section
-
+1. Enter the name or ZIP code of the location for which you wish to display the weather forecast and hit _[ENTER]_ key. If necessary, select your location within the dropdown menu that appears below, to indicate precisely the exact position.
+2. Go to third sections’s page called JSON and clic in the field filled with the URL of json’s data. Select and copy the link.
+3. Go to wordpress menu _[Settings > Gad Lab Meteo](/wp-admin/options-general.php?page=gadlab-meteo)_.
+4. Paste the link in the field named _json file’s url_ under _URL’s settings_ section.
+5. Click on the _Save changes_ button at the bottom of the page.
 
 ### Usage
 Add following shortcodes to your posts: 
