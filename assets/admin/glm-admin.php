@@ -11,7 +11,7 @@
  class GadlabMeteo {
 	private $gadlab_meteo_options;
 
-	public function <em>_construct() {
+	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'gadlab_meteo_add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'gadlab_meteo_page_init' ) );
 	}
@@ -31,24 +31,28 @@
 
 		<div class="wrap">
 			<h2>Gad Lab Meteo · Preferences</h2>
-			<p>WP Plugin · Hourly and daily weather forecasts for a given place in Switzerland.</p>
-			<p>Data source : <a href="https://prevision-meteo.ch/services" target="_blank" title="Clic opens in a new window...">prevision-meteo.ch</a></p>
-			<h3>Settings</h3>
+			<p><strong>Hourly and daily weather forecasts for a given place in Switzerland.</strong></p>
+			<p>Plugin’s page&nbsp;: <a href="https://github.com/gadlab/gadlab-meteo" target="_blank" title="GitHub Repository">gadlab-meteo</a><br>
+			Data source&nbsp;: <a href="https://prevision-meteo.ch/" target="_blank" title="Clic opens in a new window...">prevision-meteo.ch</a></p>
+			<h2>Settings</h2>
+			<p><strong>Get json meteo data file from <a href="https://prevision-meteo.ch/service/" target="_blank">https://prevision-meteo.ch/service/</a></strong>&nbsp;:</p>
 			<ol>
-				<li>Enter the name or ZIP code of the location for which you wish to display the weather forecast and hit <em>[ENTER]</em> key. If necessary, select your location within the dropdown menu that appears below, to indicate the exact position.</li>
-				<li>2. Go to third sections’s page called JSON and clic in the field filled with the URL of json’s data. Select and copy the link.</li>
-				<li>3. Go to wordpress menu <a href="/wp-admin/options-general.php?page=gadlab-meteo)">Settings > Gad Lab Meteo</a>.</li>
-				<li>4. Paste the link in the field named <em>json file’s url</em> under <em>URL’s settings</em> section.</li>
-				<li>5. Click on the <em>Save changes</em> button at the bottom of the page.</li>
+				<li>Enter the name or ZIP code of the location for which you wish to display the weather forecast and hit the <strong><em>[ENTER] key</em></strong>.<br>
+				If necessary, select your location within the dropdown menu that appears below, to indicate the exact position.</li>
+				<li>Scroll to third sections called <strong><em>JSON</em></strong> and clic in the field filled with the URL of json’s data. Select and copy the link.</li>
+				<li>Go to your wordpress dashboard and choose menu <strong><em><a href="/wp-admin/options-general.php?page=gadlab-meteo">Settings > Gad Lab Meteo</a></em></strong>.</li>
+				<li>Paste the link in the field named <strong><em>json file’s url</em></strong> under <strong><em>URL’s settings</em></strong> section.</li>
+				<li><strong><em>Save changes</em></strong> at the bottom of the page.</li>
 			</ol>
-			<h3>Usage</h3>
-			<p>Add following shortcodes to your posts:</p>
+			<h2>Usage</h2>
+			<p><strong>Add following shortcodes to your posts&nbsp;:</strong></p>
 			<ul>
 			<li><strong>[meteo type="today"]</strong> · Display today weather (short version)</li>
 			<li><strong>[meteo type="hours"]</strong> · Display today weather informations in 24 hours format</li>
 			<li><strong>[meteo type="forecast"]</strong> · Display weather forecast for today and the next three days</li>
 			</ul>
 			<p>&nbsp;</p>
+
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php">
@@ -58,6 +62,7 @@
 					submit_button();
 				?>
 			</form>
+		
 		</div>
 	<?php }
 
@@ -69,8 +74,15 @@
 		);
 
 		add_settings_section(
-			'gadlab_meteo_setting_section', // id
-			'Settings', // title
+			'url_setting_section', // id
+			'<hr>URL’s settings', // title
+			array( $this, 'gadlab_meteo_section_info' ), // callback
+			'gadlab-meteo-admin' // page
+		);
+
+		add_settings_section(
+			'css_setting_section', // id
+			'<hr>CSS settings', // title
 			array( $this, 'gadlab_meteo_section_info' ), // callback
 			'gadlab-meteo-admin' // page
 		);
@@ -80,7 +92,7 @@
 			'json file’s url', // title
 			array( $this, 'json_url_callback' ), // callback
 			'gadlab-meteo-admin', // page
-			'gadlab_meteo_setting_section' // section
+			'url_setting_section' // section
 		);
 
 		add_settings_field(
@@ -88,7 +100,7 @@
 			'Detailed page’s url', // title
 			array( $this, 'detailed_page_callback' ), // callback
 			'gadlab-meteo-admin', // page
-			'gadlab_meteo_setting_section' // section
+			'url_setting_section' // section
 		);
 
 		add_settings_field(
@@ -96,7 +108,7 @@
 			'Color text display', // title
 			array( $this, 'color_text_display_callback' ), // callback
 			'gadlab-meteo-admin', // page
-			'gadlab_meteo_setting_section' // section
+			'css_setting_section' // section
 		);
 
 		add_settings_field(
@@ -104,7 +116,7 @@
 			'Warm color in hexadécimal', // title
 			array( $this, 'warm_color_callback' ), // callback
 			'gadlab-meteo-admin', // page
-			'gadlab_meteo_setting_section' // section
+			'css_setting_section' // section
 		);
 
 		add_settings_field(
@@ -112,7 +124,7 @@
 			'Cold color in hexadécimal', // title
 			array( $this, 'cold_color_callback' ), // callback
 			'gadlab-meteo-admin', // page
-			'gadlab_meteo_setting_section' // section
+			'css_setting_section' // section
 		);
 	}
 
