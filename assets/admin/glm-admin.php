@@ -11,7 +11,7 @@
  class GadlabMeteo {
 	private $gadlab_meteo_options;
 
-	public function __construct() {
+	public function <em>_construct() {
 		add_action( 'admin_menu', array( $this, 'gadlab_meteo_add_plugin_page' ) );
 		add_action( 'admin_init', array( $this, 'gadlab_meteo_page_init' ) );
 	}
@@ -33,12 +33,22 @@
 			<h2>Gad Lab Meteo · Preferences</h2>
 			<p>WP Plugin · Hourly and daily weather forecasts for a given place in Switzerland.</p>
 			<p>Data source : <a href="https://prevision-meteo.ch/services" target="_blank" title="Clic opens in a new window...">prevision-meteo.ch</a></p>
-			<p>Usage<br>Add following shortcodes to your posts:</p>
+			<h3>Settings</h3>
+			<ol>
+				<li>Enter the name or ZIP code of the location for which you wish to display the weather forecast and hit <em>[ENTER]</em> key. If necessary, select your location within the dropdown menu that appears below, to indicate the exact position.</li>
+				<li>2. Go to third sections’s page called JSON and clic in the field filled with the URL of json’s data. Select and copy the link.</li>
+				<li>3. Go to wordpress menu <a href="/wp-admin/options-general.php?page=gadlab-meteo)">Settings > Gad Lab Meteo</a>.</li>
+				<li>4. Paste the link in the field named <em>json file’s url</em> under <em>URL’s settings</em> section.</li>
+				<li>5. Click on the <em>Save changes</em> button at the bottom of the page.</li>
+			</ol>
+			<h3>Usage</h3>
+			<p>Add following shortcodes to your posts:</p>
 			<ul>
 			<li><strong>[meteo type="today"]</strong> · Display today weather (short version)</li>
 			<li><strong>[meteo type="hours"]</strong> · Display today weather informations in 24 hours format</li>
 			<li><strong>[meteo type="forecast"]</strong> · Display weather forecast for today and the next three days</li>
 			</ul>
+			<p>&nbsp;</p>
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php">
@@ -152,7 +162,7 @@
 	}
 
 	public function color_text_display_callback() {
-		?> <fieldset><legend>CSS Settings</legend><?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display'] ) && $this->gadlab_meteo_options['color_text_display'] === 'dark' ) ? 'checked' : '' ; ?>
+		?> <fieldset><?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display'] ) && $this->gadlab_meteo_options['color_text_display'] === 'dark' ) ? 'checked' : '' ; ?>
 		<label for="color_text_display-0"><input type="radio" name="gadlab_meteo_option_name[color_text_display]" id="color_text_display-0" value="dark" <?php echo $checked; ?>> Dark text on light background</label><br>
 		<?php $checked = ( isset( $this->gadlab_meteo_options['color_text_display'] ) && $this->gadlab_meteo_options['color_text_display'] === 'light' ) ? 'checked' : '' ; ?>
 		<label for="color_text_display-1"><input type="radio" name="gadlab_meteo_option_name[color_text_display]" id="color_text_display-1" value="light" <?php echo $checked; ?>> Light text on dark background</label></fieldset> <?php
