@@ -31,6 +31,7 @@
 
 		<div class="wrap">
 			<h2>Gad Lab Meteo · Preferences</h2>
+			<hr>
 			<p><strong>Hourly and daily weather forecasts for a given place in Switzerland.</strong></p>
 			<p>Plugin’s page&nbsp;: <a href="https://github.com/gadlab/gadlab-meteo" target="_blank" title="GitHub Repository">gadlab-meteo</a><br>
 			Data source&nbsp;: <a href="https://prevision-meteo.ch/" target="_blank" title="Clic opens in a new window...">prevision-meteo.ch</a></p>

@@ -1,0 +1,337 @@
+<style>
+/* DEFINE FLEX LAYOUT */
+.glm-flex-container {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: normal;
+  align-content: center;
+  width: 100%;
+}
+.glm-flex-item {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  text-align: center;
+}
+/* METEO HOURS */
+.meteo_hours h3 {
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+    text-align: center;
+}
+/* METEO HOURS ICONS CURVE */
+.meteo_hours .glm-flex-container .col-0 img, 
+.meteo_hours .glm-flex-container .col-23 img {
+    margin-top: 100px;
+}
+.meteo_hours .glm-flex-container .col-1 img, 
+.meteo_hours .glm-flex-container .col-22 img {
+    margin-top: 98px;
+}
+.meteo_hours .glm-flex-container .col-2 img, 
+.meteo_hours .glm-flex-container .col-21 img {
+    margin-top: 92px;
+}
+.meteo_hours .glm-flex-container .col-3 img, 
+.meteo_hours .glm-flex-container .col-20 img {
+    margin-top: 83px;
+}
+.meteo_hours .glm-flex-container .col-4 img, 
+.meteo_hours .glm-flex-container .col-19 img {
+    margin-top: 71px;
+}
+.meteo_hours .glm-flex-container .col-5 img, 
+.meteo_hours .glm-flex-container .col-18 img {
+    margin-top: 57px;
+}
+.meteo_hours .glm-flex-container .col-6 img, 
+.meteo_hours .glm-flex-container .col-17 img {
+    margin-top: 43px;
+}
+.meteo_hours .glm-flex-container .col-7 img, 
+.meteo_hours .glm-flex-container .col-16 img {
+    margin-top: 28px;
+}
+.meteo_hours .glm-flex-container .col-8 img, 
+.meteo_hours .glm-flex-container .col-15 img {
+    margin-top: 18px;
+}
+.meteo_hours .glm-flex-container .col-9 img, 
+.meteo_hours .glm-flex-container .col-14 img {
+    margin-top: 9px;
+}
+.meteo_hours .glm-flex-container .col-10 img, 
+.meteo_hours .glm-flex-container .col-13 img {
+    margin-top: 3px;
+}
+.meteo_hours .glm-flex-container .col-11 img, 
+.meteo_hours .glm-flex-container .col-12 img {
+    margin-top: 0;
+}
+
+/* METEO 4 DAYS FORECAST */
+.meteo_forecast .glm-flex-item {
+    padding: 0 .5vw;
+}
+.meteo_forecast h3 {
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+    text-align: center;
+}
+.meteo_forecast img {
+    width: 128px;
+    height: auto;
+}
+.meteo_forecast .tmin, .meteo_forecast .tmax {
+    font-weight: bold;
+}
+.meteo_forecast .tmin {
+    color: #00c3ff;
+}
+
+.meteo_forecast .tmax {
+    color: #fe8934;
+}
+
+/* METEO TODAY */
+.meteo_today h3 {
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+    text-align: center;
+}
+</style>
+
+<div class="meteo_hours">
+    <h3>Prévision horaire du Dim.&nbsp;03.03.2024</h3>
+    <div class="glm-flex-container">
+        <div class="glm-flex-item col-0">
+            <header>1:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div><!--/col-0-->
+        <div class="glm-flex-item col-1">
+            <header>2:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div><!--/col-1-->
+        <div class="glm-flex-item col-2">
+            <header>3:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div><!--/col-2-->
+        <div class="glm-flex-item col-3">
+            <header>4:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-4">
+            <header>5:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-5">
+            <header>6:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-6">
+            <header>7:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-7">
+            <header>8:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-8">
+            <header>9:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-9">
+            <header>10:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-10">
+            <header>11:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-11">
+            <header>12:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-12">
+            <header>13:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-13">
+            <header>14:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-14">
+            <header>15:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-15">
+            <header>16:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-16">
+            <header>17:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-17">
+            <header>18:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-18">
+            <header>19:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-19">
+            <header>20:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-20">
+            <header>21:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-21">
+            <header>22:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-22">
+            <header>23:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+        <div class="glm-flex-item col-23">
+            <header>00:00</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>2°</footer>
+        </div>
+    </div>
+</div><!--/meteo_hours-->
+
+<div class="meteo_forecast">
+    <h3>Prévisions sur 4 jours</h3>
+    <div class="glm-flex-container">
+        <div class="glm-flex-item col-0">
+            <header>Dim. 03.03.2024</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>
+                <span class="tmin">-1°</span> / <span class="tmax">8°</span><br>
+                <strong>Eclaircies</strong><br>
+                <i class="fas fa-sun"></i> <i class="fas fa-arrow-up"></i> 07:08 <i class="fas fa-arrow-down"></i> 18:25
+            </footer>
+        </div>
+        <div class="glm-flex-item col-1">
+            <header>Lun. 04.03.2024</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>
+                <span class="tmin">-3°</span> / <span class="tmax">3°</span><br>
+                <strong>Eclaircies</strong><br>
+                <i class="fas fa-sun"></i> <i class="fas fa-arrow-up"></i> 07:08 <i class="fas fa-arrow-down"></i> 18:25
+            </footer>
+        </div>
+        <div class="glm-flex-item col-2">
+            <header>Mar. 05.03.2024</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>
+                <span class="tmin">-3°</span> / <span class="tmax">0°</span><br>
+                <strong>Averses de neige faible</strong><br>
+                <i class="fas fa-sun"></i> <i class="fas fa-arrow-up"></i> 07:08 <i class="fas fa-arrow-down"></i> 18:25
+            </footer>
+        </div>
+        <div class="glm-flex-item col-3">
+            <header>Mer. 06.03.2024</header>
+            <div>
+                <img decoding="async" src="https://prevision-meteo.ch/style/images/icon/fortement-nuageux.png" alt="icon">
+            </div>
+            <footer>
+                <span class="tmin">-3°</span> / <span class="tmax">3°</span><br>
+                <strong>Ensoleillé</strong><br>
+                <i class="fas fa-sun"></i> <i class="fas fa-arrow-up"></i> 07:08 <i class="fas fa-arrow-down"></i> 18:25
+            </footer>
+        </div>
+    </div>
+</div><!--/meteo_forecast-->
+
+
+<div class="meteo_today">
+    <h3>Actuellement</h3>
+    <div></div>
+</div><!--/meteo_today-->
