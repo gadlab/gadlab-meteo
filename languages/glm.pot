@@ -34,7 +34,7 @@ msgid "Gad Lab Meteo"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://gadlab.net/docs"
+msgid "https://github.com/gadlab/gadlab-meteo/"
 msgstr ""
 
 #. Description of the plugin/theme
