@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: Gad Lab Meteo
-Plugin URI: https://gadlab.net/docs
+Plugin URI: https://github.com/gadlab/gadlab-meteo
 Description: Hourly and daily weather forecasts for a given place in Switzerland. Usage: add following shortcodes to your posts: [meteo type="meteo_today"] [meteo type="meteo_hours"] [meteo type="meteo_forecast"]
 Version: 2.3
 Author: Gad Lab
