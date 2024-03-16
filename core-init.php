@@ -12,7 +12,7 @@ define('GLM_CORE_ADMIN',dirname( __FILE__ ).'/assets/admin/');
 define('GLM_CORE_IMG',plugins_url( 'assets/img/', __FILE__ ));
 define('GLM_CORE_CSS',plugins_url( 'assets/css/', __FILE__ ));
 define('GLM_CORE_JS',plugins_url( 'assets/js/', __FILE__ ));
-//define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
+define('GLM_CORE_LANG',dirname( __FILE__ ).'/languages/');
 
 /*  -----------------
     Register CSS file
@@ -58,9 +58,9 @@ if ( file_exists( GLM_CORE_ADMIN . 'glm-admin.php' ) ) {
     Load plugin textdomain for localization
     ---------------------------------------
 */
-/*
+
 function glm_load_textdomain() {
     load_plugin_textdomain( 'glm', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'init', 'glm_load_textdomain' );
-*/
+
